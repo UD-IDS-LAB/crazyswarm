@@ -1,0 +1,26 @@
+
+
+
+A) Copy the optimal controller python file (Yiming translated this from Matlab to Python in the summer, and Jason finished it) into this directory
+
+
+
+
+B) Finish the python file to interface with the crazy flies
+
+For example, see "Figure 8.py"
+
+
+The python file should do the following:
+
+0) Hardcode in final formation positions. For example, p1 = [0, 0], p2 = [1, 0], p3 = [1, 1]. This is at the top of the file. Also define some time, like 10 seconds.
+1) Initialize the crazyflies we're using
+2) Get trajectory coefficients from the optimal controller (x, y. We can set z and yaw coefficients to zero for now)
+3) Use uav_trajectory.py's buildTrajectories command (pass in the coefficients as a list. they should be formatted the same way as the figure 8 csv file). Here we will only have a single row, because we're following a single curve.
+4) Upload the trajectories to each of the crazyflies
+5) give the 'Go' command (after the hover command?)
+6) after the 10 seconds (or whatever the time is) + 2 or 3 seconds (to allow them to settle) give the land command
+
+
+
+NOTE: The drone's won't avoid collisions, so run this in simulation mode first (--sim parameter) to make sure they don't crash.

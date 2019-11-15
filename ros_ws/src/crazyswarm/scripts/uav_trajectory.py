@@ -97,6 +97,15 @@ class Trajectory:
     self.polynomials = [Polynomial4D(row[0], row[1:9], row[9:17], row[17:25], row[25:33]) for row in data]
     self.duration = np.sum(data[:,0])
 
+
+  #coeffs is a numpy array of trajectory points
+  #2d array of 1+8x4 = 33 elements, and N row
+  def buildTrajectory(self, coeffs):
+    self.polynomials = [Polynomial4D(row[0], row[1:9], row[9:17], row[17:25], row[25:33]) for row in coeffs]
+    self.duration = np.sum(data[:,0])
+
+
+
   def eval(self, t):
     assert t >= 0
     assert t <= self.duration
